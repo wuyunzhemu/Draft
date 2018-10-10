@@ -93,7 +93,7 @@ body{
 
 .weui-btn:after{                /*设置按钮边框*/
   content:" ";
-  width:200%;                   /*设置双倍高宽，配合缩放，来渲染边框*/
+  width:200%;                   /*设置双倍高宽，配合缩放，来渲染边框，好处是在苹果端看起来更细*/
   height:200%;
   position:absolute;
   top:0;

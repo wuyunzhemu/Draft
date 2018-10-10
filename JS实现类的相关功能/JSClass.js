@@ -33,3 +33,4 @@ girl.prototype.answerMe = function(){
 
 var aGirl = new girl();
 console.log(aGirl.name +'   ' +aGirl.answerMe());
+aGirl.fun1();
