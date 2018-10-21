@@ -5,29 +5,28 @@
   box-sizing:border-box;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
-.loadingItem{
+.loginItem{
   padding-left:2%;
   position:absolute;
-  top:30%;
-  left:38%;
-  width:30%;
-  height:50%;
+  top:20%;
+  left:30%;
+  width:33%;
   color:white;
   border:1px solid white;
   color:#586069;
   border-radius:10px;
 }
-.loadingItem__form{
+.loginItem__form{
   margin-top:30px;
   font-size:20px;
 }
-.loadingItem__form span{
+.loginItem__form span{
   font-size:30px;
   display:block;
   margin:10px 0;
   margin-top:15px;
 }
-.loadingItem__form-input{
+.loginItem__form-input{
   display:block;
   width:80%;
   height:60px;
@@ -37,14 +36,15 @@
   line-height:1.5;
   padding-left:3%;
 }
-.loadingItem__form input::-webkit-input-placeholder{
+.loginItem__form input::-webkit-input-placeholder{
   color: #aab2bd;
   font-size:24px;
 }
-.loadingItem__reg{
+.loginItem__reg{
   margin-top:25px;
+  margin-bottom: 50px;
 }
-.loadingItem__form-submit{
+.loginItem__form-submit{
   display:block;
   margin-top:30px;
   background-color:#2198b2;
