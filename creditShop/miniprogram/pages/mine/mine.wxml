@@ -1,2 +1,6 @@
-<!--miniprogram/pages/mine/mine.wxml-->
-<text>miniprogram/pages/mine/mine.wxml</text>
+<view class="{{app.globalData.hasLog?'hidden':''}}">
+
+</view>
+<view class="{{app.globalData.hasLog}}?'':'hidden'">
+  <van-card title=""></van-card>
+</view>

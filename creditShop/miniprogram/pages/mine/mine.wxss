@@ -1,1 +1,3 @@
-/* miniprogram/pages/mine/mine.wxss */
+.hidden{
+  display: none;
+}

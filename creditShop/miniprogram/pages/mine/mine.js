@@ -1,11 +1,14 @@
 // miniprogram/pages/mine/mine.js
+wx.cloud.init({
+  env: 'fy-5ff9cd'
+})
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    SignUp:false
   },
 
   /**

@@ -1,7 +1,9 @@
 //app.js
 App({
   globalData:({
-    carts:[]
+    carts:[],
+    hasLog:false,
+    userInfo:{}
   }),
   onLaunch: function () {
     
