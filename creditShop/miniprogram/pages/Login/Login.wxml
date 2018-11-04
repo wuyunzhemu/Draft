@@ -1,0 +1,7 @@
+<!--miniprogram/pages/Login/Login.wxml-->
+<view class="littlePro">
+  <image src="../../images/logo.png" />
+  <text class="title">iRecycle回收君</text>
+</view>
+<view class="remind">登陆前请先授权</view>
+<button class="Login" open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>微信授权</button>

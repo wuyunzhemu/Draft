@@ -2,8 +2,11 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
+    "pages/signUp/signUp",
+    "pages/Login/Login",
     "pages/carts/carts",
     "pages/mine/mine"
+
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -18,12 +21,12 @@
       {
         "pagePath": "pages/index/index",
         "text": "商城",
-        "iconPath":"images/icon-shop.png",
-        "selectedIconPath":"images/icon-shop_select.png"
+        "iconPath": "images/icon-shop.png",
+        "selectedIconPath": "images/icon-shop_select.png"
       },
       {
-        "pagePath":"pages/carts/carts",
-        "text":"购物车",
+        "pagePath": "pages/carts/carts",
+        "text": "购物车",
         "iconPath": "images/icon-car.png",
         "selectedIconPath": "images/icon-car_select.png"
       },

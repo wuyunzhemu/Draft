@@ -1,4 +1,7 @@
 //app.js
+wx.cloud.init({
+  env: 'fy-e77ad0'
+})
 App({
   globalData:({
     carts:[],

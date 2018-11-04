@@ -1,0 +1,41 @@
+/* miniprogram/pages/signUp/signUp.wxss */
+.wrap{
+  height: 100vh;
+  width: 100%;
+  background: #f0f0f0
+}
+
+.title{
+  line-height: 120rpx;
+  display: block;
+  height:120rpx;
+  margin-left: 30rpx;
+  color:#aaa;
+  font-size:30rpx;
+}
+
+.wrap .van-cell{
+  font-size: 32rpx;
+  color:#333
+}
+
+.domtry{
+  display: block;
+  width: 300rpx;
+  color:#aaa;
+  font-size: 32rpx;
+  text-align: center;
+  border-bottom:1px solid #f0f0f0;
+}
+
+.sign-up{
+  margin-top: 400rpx;
+  width: 80%;
+  background-color: #00a77b;
+  color:white;
+  border-radius: 10rpx;
+}
+
+.sign-up:active{
+  filter: brightness(0.8)
+}

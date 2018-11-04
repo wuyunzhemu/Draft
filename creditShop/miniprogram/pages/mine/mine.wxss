@@ -1,3 +1,23 @@
 .hidden{
   display: none;
 }
+
+.unLog{
+
+}
+
+.unLog .van-card{
+  background: #00a77b;
+}
+
+.van-card image{
+  border-radius: 50%;
+}
+
+.van-card__title{
+  font-size: 32rpx;
+  position:relative;
+  top:50rpx;
+  left:30rpx;
+  color:#fff;
+}

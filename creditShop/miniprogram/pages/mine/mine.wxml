@@ -1,6 +1,7 @@
-<view class="{{app.globalData.hasLog?'hidden':''}}">
 
+<view class="{{hasLog?'hidden':'unLog'}}" bindtap='Login'>
+  <van-card thumb="../../images/unLog.jpg" title="登陆/注册"></van-card>
 </view>
-<view class="{{app.globalData.hasLog}}?'':'hidden'">
-  <van-card title=""></van-card>
+<view class="{{hasLog}}?'':'hidden'">
+  <van-card thumb="{{}}" title=""></van-card>
 </view>

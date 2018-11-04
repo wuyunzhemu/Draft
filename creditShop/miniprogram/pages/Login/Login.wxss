@@ -1,0 +1,46 @@
+/* miniprogram/pages/Login/Login.wxss */
+
+.littlePro{
+  margin-top:15%;
+}
+
+.littlePro image{
+  margin: 0 auto;
+  display: block;
+  width: 200rpx;
+  height:200rpx;
+  border-radius: 50%;
+}
+
+.title{
+  margin-top:2%;
+  display: block;
+  font-size: 32rpx;
+  text-align:center;
+  width:100%;
+}
+
+.remind{
+  margin-top:20rpx;
+  font-size: 32rpx;
+  text-align:center;
+  width:100%;
+  color:#aaa
+}
+
+.desc{
+  margin-top:100rpx;
+  margin-left:10%;
+  font-size: 28rpx;
+  color:#aaa;
+  width: 75%;
+
+}
+.Login{
+  width:80%;
+  margin-top:40rpx;
+  height:90rpx;
+  border-radius: 10rpx;
+  background-color: #00a77b;
+  color:white;
+}

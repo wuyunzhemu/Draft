@@ -1,53 +1,53 @@
-// miniprogram/pages/mine/mine.js
-let app = getApp();
-const db = wx.cloud.database()
-const user = db.collection('user')
+
+// miniprogram/pages/Login/Login.js
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    SignUp:false,
-    hadSign:false,
-    hasLog:false,
-    userInfo:{}
+
   },
 
-  Login:function(){
-   wx.navigateTo({
-     url: '../Login/Login',
-   })
+  bindGetUserInfo:function(e){
+    let that = this;
+    if(e.detail.userInfo){
+  
+      let user =JSON.stringify(e.detail.userInfo)
+
+      wx.showModal({
+        content: "授权成功，第一次登陆请先完善个人信息",
+        showCancel: false,
+        confirmText: '知道了',
+        success: function (res) {
+          wx.redirectTo({
+            url: '../signUp/signUp?userInfo='+user,
+          })
+        }
+      })
+    }
+    else{
+      wx.showModal({
+        content: "您已拒绝授权",
+        showCancel: false,
+        confirmText: '知道了',
+        success: function (res) {
+          that.setData({
+            showModal2: false
+          });
+        }
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.hasLog)
-    this.setData({
-      hasLog : app.globalData.hasLog,
-      userInfo : app.globalData.userInfo
-    })
-
-    wx.getSetting({
-      success: res=>{
-        if(res.authSetting['scope.userInfo']){
-          //云函数查找
-          if(res==null){
-            
-          }
-        }
-        else{
-          // this.Login()
-        }
-      }
-    })
+   
   },
 
-  findUser:function(){
-
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -10,7 +10,7 @@
 	},
 	"appid": "wx69dcf9933a381fd9",
 	"projectname": "iRecycle%E5%9B%9E%E6%94%B6%E5%90%9B",
-	"libVersion": "2.2.5",
+	"libVersion": "2.3.2",
 	"condition": {
 		"search": {
 			"current": -1,
