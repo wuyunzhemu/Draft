@@ -79,7 +79,6 @@ Page({
   },
 
   selectRoom(e){
-    console.log(e);
     this.setData({
       'userInfo.school':e.detail.detail.province,
       'userInfo.area':e.detail.detail.city,
@@ -138,32 +137,45 @@ Page({
   },
 
   sendInfo(){
-    let userInfo = this.data.userInfo;
-    if(this.checkInfo()){
-      user.add({
-        data:userInfo,
-        success:res=>{ 
-            wx.showToast({
-              title: '提交成功',
-              icon: 'success',
-              success: (res) => {
-                app.globalData.userInfo = userInfo;
-                app.globalData.hasLog = true;
-                wx.switchTab({
-                  url: '../../pages/mine/mine',
+    let that =this
+    let userInfo = that.data.userInfo;
+      if (that.checkInfo()) {
+        wx.showModal({
+          title: '提示',
+          content: '确认提交吗',
+          success(res) {
+            if (res.confirm) {        
+                user.add({
+                  data: userInfo,
+                  success: res => {
+                    wx.showToast({
+                      title: '提交成功',
+                      icon: 'success',
+                      success: (res) => {
+                        app.globalData.userInfo = userInfo;
+                        app.globalData.hasLog = true;
+                        wx.switchTab({
+                          url: '../../pages/mine/mine',
+                        })
+                      }
+                    })
+                  }
                 })
               }
-            })        
-         }
-      })
-    }
-    else{
-      wx.showToast({
-        title: '页面信息未正确填写！',
-        icon: 'none'
-      })
-      return
-    }
+              else{
+                return
+              }
+          }
+        })
+      }
+      else {
+        wx.showToast({
+          title: '页面信息未正确填写！',
+          icon: 'none'
+        })
+        return
+      }
+    return
   },
 
   /**

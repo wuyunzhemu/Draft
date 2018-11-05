@@ -36,6 +36,10 @@
   border-radius: 10rpx;
 }
 
+.wrap van-cell-group{
+  margin-top:10%;
+}
+
 .sign-up:active{
   filter: brightness(0.8)
 }

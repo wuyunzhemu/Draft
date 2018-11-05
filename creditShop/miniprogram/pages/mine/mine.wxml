@@ -1,7 +1,20 @@
-
-<view class="{{hasLog?'hidden':'unLog'}}" bindtap='Login'>
-  <van-card thumb="../../images/unLog.jpg" title="登陆/注册"></van-card>
-</view>
-<view class="{{hasLog}}?'':'hidden'">
-  <van-card thumb="{{}}" title=""></van-card>
+<view class="wrap">
+  <view class="{{hasLog?'hidden':'unLog'}}" bindtap='Login'>
+  <van-card thumb="../../images/unLog.jpg" title="点击登陆/注册"></van-card>
+    <van-cell-group class="menu-list">
+      <van-cell class="cell" title="我的积分" is-link value="{{userInfo.marks}}"></van-cell>
+      <van-cell class="cell" title="订单记录" is-link></van-cell>
+      <van-cell class="cell" class="{{hasLog?'':'hidden'}}" title="退出登陆" clickable="true"></van-cell>
+      <van-cell class="cell" title="登陆使用更多"></van-cell>
+    </van-cell-group>
+  </view>
+  <view class="{{hasLog?'inLog':'hidden'}}">
+    <van-card thumb="{{userInfo.wxInfo.avatarUrl}}" title="{{userInfo.school}}  {{userInfo.area}}" 
+    desc="{{userInfo.dmtry}} {{userInfo.roomNum}}"></van-card>
+    <van-cell-group class="menu-list">
+      <van-cell class="cell" title="我的积分" is-link value="{{userInfo.marks}}"></van-cell>
+      <van-cell class="cell" title="订单记录" is-link></van-cell>
+      <van-cell class="cell" title="退出登陆" clickable="true"></van-cell>
+    </van-cell-group>
+  </view>
 </view>

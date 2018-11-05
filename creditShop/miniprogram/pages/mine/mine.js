@@ -8,41 +8,64 @@ Page({
    * 页面的初始数据
    */
   data: {
-    SignUp:false,
-    hadSign:false,
     hasLog:false,
-    userInfo:{}
+    userInfo:{},
+    hasSet:false
   },
 
   Login:function(){
-   wx.navigateTo({
-     url: '../Login/Login',
-   })
+    if(this.data.hasSet)
+    {
+      wx.navigateTo({
+        url: '../signUp/signUp',
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '../Login/Login',
+      })
+    }
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.hasLog)
-    this.setData({
-      hasLog : app.globalData.hasLog,
-      userInfo : app.globalData.userInfo
+    wx.showLoading({
+      title: '正在加载',
     })
+    
 
     wx.getSetting({
       success: res=>{
         if(res.authSetting['scope.userInfo']){
-          //云函数查找
-          if(res==null){
-            
-          }
-        }
-        else{
-          // this.Login()
+          this.data.hasSet=true;          //云函数查找
+          wx.cloud.callFunction({
+            name:'login',
+            success:res=>{
+              user.where({
+                _openid:res.result.openid
+                }).get().then(userRes=>{
+                  if(userRes.data.length===0){
+                    return;
+                  }
+                  else{
+                    this.setData({
+                      hasLog:true,
+                      userInfo:userRes.data[0]
+                    })
+                    app.globalData.userInfo = this.data.userInfo;
+                    app.globalData.hasLog = true;
+                  }
+                })
+              wx.hideLoading();
+            }
+          })
         }
       }
     })
+
   },
 
   findUser:function(){
@@ -60,7 +83,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      hasLog: app.globalData.hasLog,
+      userInfo: app.globalData.userInfo
+    })
   },
 
   /**

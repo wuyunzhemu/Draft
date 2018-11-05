@@ -2,16 +2,38 @@
   display: none;
 }
 
-.unLog{
-
+.wrap{
+  height:100vh;
+  background: #f0f0f0;
 }
 
 .unLog .van-card{
   background: #00a77b;
 }
 
+.inLog .van-card{
+  background: #00a77b;
+}
+
+.van-card__desc{
+  color:#fff  !important;
+  font-size: 28rpx;
+  position: relative;
+  top:70rpx;
+  left:50rpx;
+}
+
 .van-card image{
   border-radius: 50%;
+}
+
+.van-cell__title{
+  color:#777777;
+  font-size: 34rpx;
+}
+
+.van-cell__value{
+    color:#aaa;
 }
 
 .van-card__title{
@@ -21,3 +43,10 @@
   left:30rpx;
   color:#fff;
 }
+
+.menu-list{
+  display: block;
+  margin-top: 2%;
+
+}
+

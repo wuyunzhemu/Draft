@@ -35,7 +35,7 @@
           <text class="span-selectAll">全选</text>
         </view>  
         <view class="pay" bindtap=''>
-          <text class="cart-total-price">{{totalPrice}}积分</text>
+          <text bindtap="pay" class="cart-total-price">{{totalPrice}}积分</text>
         </view>
       </view>
 </view>

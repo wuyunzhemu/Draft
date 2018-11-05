@@ -1,11 +1,12 @@
 {
   "cloud": true,
   "pages": [
+    "pages/mine/mine",
     "pages/index/index",
     "pages/signUp/signUp",
     "pages/Login/Login",
-    "pages/carts/carts",
-    "pages/mine/mine"
+    "pages/carts/carts"
+
 
   ],
   "window": {
