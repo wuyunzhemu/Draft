@@ -1,0 +1,7 @@
+<view class="wrap">
+  <view class="caard">
+    <view class="remind">
+      您兑换的{{}}
+    </view>
+  </view>
+</view>

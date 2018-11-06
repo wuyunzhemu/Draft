@@ -61,10 +61,14 @@ text{
 
 .cart-del{
   text-align: center;
-
+  color:red;
   border-radius: 50%;
   position: relative;
   left:30rpx;
+}
+
+.cart-count-num{
+  font-size: 30rpx;
 }
 
 .cart-pro-name{

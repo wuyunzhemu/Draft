@@ -1,5 +1,7 @@
 // pages/cart/cart.js
-
+ let db = wx.cloud.database();
+ let user = db.collection('user');
+ let sp = db.collection('shopping');
 let app= getApp();
 
 Page({
@@ -15,12 +17,34 @@ Page({
   },
 
   pay:function(){
-    if(this.data.carts.length===0){
+    let that = this;
+    let marks = app.globalData.userInfo.marks;
+    let price = this.data.totalPrice;
+    let openid = app.globalData.userInfo.openid;
+    let carts = this.data.carts;
+    if(this.data.totalPrice===0){
       wx.showToast({
         title: '您还没有添加物品~',
         icon:'none'
       })
       return ;
+    }
+    else if(marks < price){
+      wx.showToast({
+        title: '您的积分不足~',
+        icon:'none'
+      })
+    }
+    else if(app.globalData.hasLog===false){
+      wx.showToast({
+        title: '请先登陆~',
+        icon:'none',
+        success:res=>{
+          wx.switchTab({
+            url: '../../pages/mine/mine',
+          })
+        }
+      })
     }
     else{
       wx.showModal({
@@ -28,7 +52,58 @@ Page({
         content: '确认提交吗',
         success(res) {
           if (res.confirm) {
-            return;
+            wx.showLoading({
+              title: '正在提交',
+            })
+            marks -= price;
+            user.where({
+              _openid:openid
+            }).get({
+              success:userRes=>{
+                let userId = userRes.data[0]._id;
+                user.doc(userId).update({
+                  data: {
+                    marks: marks
+                  },
+                  success: res => {
+                    app.globalData.userInfo.marks = marks;
+                    let items = [];
+                    let buy = {};
+                    for(let i =0; i<carts.length;i++){
+                      if(carts[i].selected === true){
+                        items.push(carts[i])
+                        carts.splice(i,1)
+                        i--;
+                      }
+                    }
+                    that.setData({
+                      carts:carts
+                    })
+                    app.globalData.carts = that.data.carts
+                    that.setBadge();
+                    buy.user=userId;
+                    buy.items = items
+                    let key = that.random()
+                    buy.key = key;
+                    buy.price = price;
+                    buy.user = openid;
+                    buy.Time = that.getTime();
+                    buy.status = '未兑换'
+                    sp.add({
+                      data:buy,
+                      success:spres=>{
+                        console.log(spres);
+                        wx.hideLoading()
+                        wx.navigateTo({
+                          url: '../shopping/shopping?id='+spres._id,
+                        })
+                      }
+                    })
+
+                  }
+                })
+              }
+            })         
           } else if (res.cancel) {
             return
           }
@@ -40,6 +115,22 @@ Page({
     return
   },
 
+
+  getTime(){
+      let date = new Date();
+      let seperator1 = "-";//年月日分隔符
+      let seperator2 = ":";//时分秒分隔符
+      let month = date.getMonth() + 1; //月份是0~11，要加1为当前月
+      let strDate = date.getDate();
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+      }
+      let currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + " " + date.getHours() + seperator2 + date.getMinutes() + seperator2 + date.getSeconds();
+      return currentdate;
+  },
 
   onShow: function () {
     this.setData({
@@ -59,7 +150,10 @@ Page({
     this.getTotalPrice();
   },
 
- 
+  
+  random:function(){
+    return (Math.random()*10000000).toFixed(0)
+  },
 
   setBadge(){
     wx.showTabBarRedDot({
@@ -180,8 +274,5 @@ Page({
     this.getTotalPrice()
   },
 
-  toPay: function (e) {
-    let price = e.currentTarget.dataset.price;
-    console.log('支付' + price + '元')
-  }
+
 })

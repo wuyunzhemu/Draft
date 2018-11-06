@@ -12,9 +12,9 @@
     <van-card thumb="{{userInfo.wxInfo.avatarUrl}}" title="{{userInfo.school}}  {{userInfo.area}}" 
     desc="{{userInfo.dmtry}} {{userInfo.roomNum}}"></van-card>
     <van-cell-group class="menu-list">
-      <van-cell class="cell" title="我的积分" is-link value="{{userInfo.marks}}"></van-cell>
-      <van-cell class="cell" title="订单记录" is-link></van-cell>
-      <van-cell class="cell" title="退出登陆" clickable="true"></van-cell>
+      <van-cell icon="exchange" class="cell" title="我的积分" is-link value="{{userInfo.marks}}"></van-cell>
+      <van-cell icon="pending-orders" class="cell" title="订单记录" is-link></van-cell>
+      <van-cell bindtap="logOut" class="cell" title="退出登陆" clickable="true"></van-cell>
     </van-cell-group>
   </view>
 </view>

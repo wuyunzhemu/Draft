@@ -1,13 +1,12 @@
 {
   "cloud": true,
   "pages": [
-    "pages/mine/mine",
     "pages/index/index",
+    "pages/mine/mine",
     "pages/signUp/signUp",
     "pages/Login/Login",
-    "pages/carts/carts"
-
-
+    "pages/carts/carts",
+    "pages/shopping/shopping"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

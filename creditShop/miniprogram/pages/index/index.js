@@ -166,7 +166,6 @@ Page({
 
   addToCarts:function(e){
     let item = e.currentTarget.dataset.item
-    console.log(item); 
     for(let i =0; i<app.globalData.carts.length;i++)
     {
       if(app.globalData.carts[i].title===item.name)
