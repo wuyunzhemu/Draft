@@ -2,11 +2,12 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
+    "pages/shopping/shopping",
     "pages/mine/mine",
     "pages/signUp/signUp",
     "pages/Login/Login",
     "pages/carts/carts",
-    "pages/shopping/shopping"
+    "pages/credits/credits"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

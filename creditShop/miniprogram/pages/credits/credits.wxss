@@ -1,0 +1,35 @@
+/* miniprogram/pages/credits/credits.wxss */
+.record{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  height:180rpx;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height:3;
+}
+
+
+text{
+  height:100rpx;
+  display: block;
+}
+
+.title{
+  font-size: 36rpx;
+  font-weight: 550;
+}
+
+.cost{
+  display: block;
+  font-size: 40rpx;
+  line-height: 4;
+  font-weight: 300;
+  color:#555
+}
+
+.time{
+  color:#aaa;
+  font-size: 28rpx;
+}

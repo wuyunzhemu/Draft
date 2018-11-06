@@ -1,45 +1,33 @@
-// miniprogram/pages/shopping/shopping.js
+// miniprogram/pages/credits/credits.js
 const db = wx.cloud.database();
-const item = db.collection('shopping');
+const sp = db.collection('shopping');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    goods:{},
-    items:''
+    record:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this
-    wx.showLoading({
-      title: '正在加载',
-    })
-    item.where({
-      _id: options.id,
+    let user = options.openid;
+    let that = this;
+    sp.where({
+      user:user
     }).get({
-      success: itemRes => {
-        let str = ''
-        for(let i =0;i<itemRes.data[0].items.length;i++){
-          str += itemRes.data[0].items[i].title + 'x' + itemRes.data[0].items[i].count+'  '
-        }
+      success:res=>{
+        console.log(res)
         that.setData({
-          items:str,
-          goods:itemRes.data[0]
+          record:res.data
         })
-        wx.hideLoading()
+        console.log(that.data.record)
       }
     })
-  },
 
-  back:function(){
-    wx.navigateBack({
-      delta:1
-    })
   },
 
   /**
@@ -53,7 +41,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+
   },
 
   /**

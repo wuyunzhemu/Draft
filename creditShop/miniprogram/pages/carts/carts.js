@@ -85,10 +85,11 @@ Page({
                     buy.items = items
                     let key = that.random()
                     buy.key = key;
-                    buy.price = price;
+                    buy.price = '-'+price;
                     buy.user = openid;
                     buy.Time = that.getTime();
-                    buy.status = '未兑换'
+                    buy.status = '未兑换';
+                    buy.title='积分兑换';
                     sp.add({
                       data:buy,
                       success:spres=>{
@@ -265,11 +266,11 @@ Page({
     let carts = this.data.carts;
     let index = e.currentTarget.dataset.index;
     carts[index].count--;
-    if (carts[index].num <= 0) {
-      carts[index].num = 1;
+    if (carts[index].count <= 0) {
+      carts[index].count = 1;
     }
     this.setData({
-      carts
+      carts:carts
     })
     this.getTotalPrice()
   },

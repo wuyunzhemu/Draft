@@ -1,7 +1,19 @@
 <view class="wrap">
-  <view class="caard">
     <view class="remind">
-      您兑换的{{}}
+      <text class="itemInfo">您兑换的:</text>
+      <text>{{items}}</text>
+      <text>兑换码为</text>
     </view>
-  </view>
+    <view class = "card">
+      <view class="status">
+        {{goods.status}}
+      </view>
+      <view class="key">
+        {{goods.key}}
+      </view>
+    </view>
+    <view class="advice">
+      <text>请将此界面作为凭证出示给商家兑换商品</text>
+    </view>
+    <view class="back" bindtap='back'>返回</view>
 </view>

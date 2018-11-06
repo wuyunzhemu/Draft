@@ -91,8 +91,20 @@ Page({
     
   },
 
-  findUser:function(){
-
+  seekCredits(){
+    let that = this;
+    if(that.data.hasLog===false)
+    {
+      wx.showToast({
+        title: '请先登陆~',
+      })
+      return
+    }
+    else{
+      wx.navigateTo({
+        url: '../credits/credits?'+that.data.userInfo.openid,
+      })
+    }
   },
 
   /**
