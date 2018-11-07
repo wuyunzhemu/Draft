@@ -1,9 +1,10 @@
-<view wx:for="{{record}}" wx:key="index" wx:for-item="item">
-  <view class="record">
-    <view class="desc">
-      <text class="title">{{item.title}}</text>
-      <text class="time">{{item.Time}}</text>
+<view class="{{record.length===0?'noThing':'hidden'}}">暂时没有积分记录~</view>
+  <view wx:for="{{record}}" wx:key="index" wx:for-item="item">
+    <view class="record">
+      <view class="desc">
+        <text class="title">{{item.title}}</text>
+        <text class="time">{{item.Time}}</text>
+      </view>
+      <view class="cost">{{item.price}}</view>
     </view>
-    <view class="cost">{{item.price}}</view>
   </view>
-</view>

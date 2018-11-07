@@ -1,4 +1,4 @@
-// miniprogram/pages/credits/credits.js
+// miniprogram/pages/order/order.js
 const db = wx.cloud.database();
 const sp = db.collection('shopping');
 Page({
@@ -7,9 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    record:[]
+    orders:[],
+    items:[]
   },
 
+
+  intoDetail(e){
+    wx.navigateTo({
+      url: '../shopping/shopping?id='+e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -17,17 +24,25 @@ Page({
     let user = options.openid;
     let that = this;
     sp.where({
-      user:user
+      user: user
     }).get({
-      success:res=>{
-        console.log(res)
+      success: res => {
+        let arr= res.data.reverse();
+        let str = []
+        for(let i=0;i<arr.length;i++){
+          str[i] = '';
+          for(let j=0;j<arr[i].items.length;j++){
+            str[i]+=' '+arr[i].items[j].title+' x '+arr[i].items[j].count+' \n\n ';
+          }
+        }
         that.setData({
-          record:res.data.reverse()
+          orders:arr,
+          items:str
         })
- 
+        console.log(that.data.orders);
+        console.log(that.data.items);
       }
     })
-
   },
 
   /**

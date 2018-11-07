@@ -33,3 +33,13 @@ text{
   color:#aaa;
   font-size: 28rpx;
 }
+
+.hidden{
+  display: none;
+}
+
+.noThing{
+  padding: 40rpx 0;
+  color:#999;
+  text-align: center;
+}

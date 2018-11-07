@@ -14,7 +14,7 @@ App({
   onLaunch: function () {
     let that = this
     wx.showLoading({
-      title: '正在登陆',
+      title: '正在加载',
     })
     wx.getSetting({
       success: res => {
@@ -25,24 +25,29 @@ App({
             success: res => {
               user.where({
                 _openid: res.result.openid
-              }).get().then(userRes => {
-                if (userRes.data.length === 0) {
-                  wx.hideLoading();
-                  return;
-                }
-                else {
-                  that.globalData.hasLog = true,
-                  that.globalData.userInfo= userRes.data[0]
-                  wx.hideLoading();
+              }).get({
+                complete: userRes => {
+                  console.log(userRes)
+                  if (userRes.data.length === 0) {
+                    wx.hideLoading();
+                    return;
+                  }
+                  else {
+                    that.globalData.hasLog = true,
+                      that.globalData.userInfo = userRes.data[0]
+                    wx.hideLoading();
+                  }
                 }
               })
-
-            }
+                
+              }
           })
         }
         else{
+          wx.hideLoading();
           return;
         }
+        return;
       }
       
     })

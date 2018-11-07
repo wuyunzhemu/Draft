@@ -1,7 +1,7 @@
 <view class="wrap">
     <text class="title">选择寝室</text>
       <van-cell-group>
-        <van-cell title="选择寝室" bindtap="showList" is-link value="{{userInfo.school}} {{userInfo.area}} {{userInfo.dmtry}}">
+        <van-cell title="选择寝室" bindtap="showList" is-link value="{{userInfo.school}} {{userInfo.area}}-                             {{userInfo.dmtry}}">
         </van-cell>
       </van-cell-group>
     <van-popup show="{{ showDmtrList }}" bind:click-overlay="showList" position="bottom" close-on-click-overlay="true">

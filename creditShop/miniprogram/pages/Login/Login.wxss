@@ -21,7 +21,7 @@
 }
 
 .remind{
-  margin-top:20rpx;
+  margin-top:80rpx;
   font-size: 32rpx;
   text-align:center;
   width:100%;

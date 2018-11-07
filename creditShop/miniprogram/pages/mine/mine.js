@@ -14,42 +14,48 @@ Page({
   },
 
   Login:function(){
-    if(this.data.hasSet)
-    {
-      wx.showLoading({
-        title: '正在登陆',
-      })
-      wx.cloud.callFunction({
-        name: 'login',
-        success: res => {
-          user.where({
-            _openid: res.result.openid
-          }).get().then(userRes => {
-            if (userRes.data.length === 0) {
-              wx.navigateTo({
-                url: '../signUp/signUp',
-              })
-            }
-            else {
-              this.setData({
-                hasLog: true,
-                userInfo: userRes.data[0]
-              })
-              app.globalData.userInfo = this.data.userInfo;
-              app.globalData.hasLog = true;
-            }
-            wx.hideLoading();
-          })
+    wx.getSetting({
+    success: res => {
+      if (res.authSetting['scope.userInfo']) {
+        this.setData({
+          hasSet:true
+        })
         }
-      })
-      
-    }
-    else{
-      wx.navigateTo({
-        url: '../Login/Login',
-      })
-    }
-  
+      if (this.data.hasSet == true) {
+        wx.showLoading({
+          title: '正在登陆',
+        })
+        wx.cloud.callFunction({
+          name: 'login',
+          success: res => {
+            user.where({
+              _openid: res.result.openid
+            }).get().then(userRes => {
+              if (userRes.data.length === 0) {
+                wx.navigateTo({
+                  url: '../signUp/signUp',
+                })
+              }
+              else {
+                this.setData({
+                  hasLog: true,
+                  userInfo: userRes.data[0]
+                })
+                app.globalData.userInfo = this.data.userInfo;
+                app.globalData.hasLog = true;
+              }
+              wx.hideLoading();
+            })
+          }
+        })
+      }
+      else {
+        wx.navigateTo({
+          url: '../Login/Login',
+        })
+      }
+      }
+    })  
   },
 
   /**
@@ -60,6 +66,7 @@ Page({
       success:res=>{
         if (res.authSetting['scope.userInfo']) {
           this.data.hasSet = true;
+
         }
         else{
           return;
@@ -68,6 +75,22 @@ Page({
     })
 
 
+  },
+
+  seekOrders:function(){
+    let that = this;
+    if (that.data.hasLog === false) {
+      wx.showToast({
+        title: '请先登陆~',
+        icon:'none'
+      })
+      return
+    }
+    else {
+      wx.navigateTo({
+        url: '../order/order?' + that.data.userInfo.openid,
+      })
+    }
   },
 
   logOut:function(){
@@ -97,6 +120,7 @@ Page({
     {
       wx.showToast({
         title: '请先登陆~',
+        icon:'none'
       })
       return
     }

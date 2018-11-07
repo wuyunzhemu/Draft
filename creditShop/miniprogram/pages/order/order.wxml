@@ -1,0 +1,20 @@
+<view class="wrap">
+<view class="{{orders.length===0?'noData':'hidden'}}">暂时没有订单记录~</view>
+  <view wx:for="{{orders}}" wx:key="index" wx:for-item="item">
+    <view bindtap='intoDetail' data-id="{{item._id}}" class="order-item">
+      <view class="item-title">
+        <text class="title_header">积分兑换</text>
+        <view class="item_desc">
+          <image src="{{item.items[0].thumb}}"/>
+          <view class="item_name">
+              <text class="title_items">{{items[index]}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="item-info">
+        <text class="item-price">{{item.price}}积分</text>
+        <text class="item-status">{{item.status}}</text>
+      </view>
+    </view>
+  </view>
+</view>

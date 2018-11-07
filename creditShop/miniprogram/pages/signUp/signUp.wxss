@@ -29,7 +29,7 @@
 }
 
 .sign-up{
-  margin-top: 400rpx;
+  margin-top: 550rpx;
   width: 80%;
   background-color: #00a77b;
   color:white;

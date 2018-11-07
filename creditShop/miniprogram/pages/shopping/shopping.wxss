@@ -69,12 +69,14 @@
   bottom:60rpx;
   margin-left: 30%;
   width:40%;
-  height:100rpx;
+  height:30rpx;
   border-radius: 10rpx;
   background: #00a77b;
   color:white;
   text-align: center;
-  line-height: 2.5;
+  padding-top:10rpx;
+  padding-bottom: 20rpx;
+  display: block;
 }
 
 .back:active{

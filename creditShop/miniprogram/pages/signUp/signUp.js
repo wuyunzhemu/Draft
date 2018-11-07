@@ -94,9 +94,7 @@ Page({
   onLoad: function (options) {
     if(JSON.stringify(options) != "{}"){
       let userJson = JSON.parse(options.userInfo);
-      this.setData({
-        userInfo: userJson
-      })
+      this.data.userInfo.wxInfo=userJson
     }
     else{
       wx.getUserInfo({
@@ -148,12 +146,14 @@ Page({
                 user.add({
                   data: userInfo,
                   success: res => {
+                    app.globalData.userInfo= userInfo,
+                    app.globalData.hasLog= true,
+                    app.globalData.hasSet = true
                     wx.showToast({
                       title: '提交成功',
                       icon: 'success',
                       success: (res) => {
-                        app.globalData.userInfo = userInfo;
-                        app.globalData.hasLog = true;
+  
                         wx.switchTab({
                           url: '../../pages/mine/mine',
                         })
