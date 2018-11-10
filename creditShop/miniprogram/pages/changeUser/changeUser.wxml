@@ -1,0 +1,45 @@
+<view class="wrap">
+<van-dialog
+  use-slot
+  async-close
+  show-cancel-button
+  confirm-button-open-type="getUserInfo"
+  bind:close="onClose"
+  bind:getuserinfo="getUserInfo"
+>
+<van-field
+  label="用户名"
+  placeholder="请输入用户名"
+/>
+<van-field
+  type="password"
+  label="密码"
+  :border="false"
+  placeholder="请输入密码"
+/>
+</van-dialog>
+  <view class="page-title">修改积分</view>
+  <view class="{{userList.length===0?'noData':'hidden'}}">暂时没有用户记录~</view>
+  <block wx:for="{{userList}}" wx:key="{{item._openid}}"  wx:for-item="item"> 
+    <view class="user-card">
+     <view class="user-desc">
+         <text>{{item.school}} {{item.area}}</text>
+         <text>{{item.dmtry}} {{item.roomNum}}</text>
+      </view>
+     <view class="marks">
+        <view class="marks-num">{{item.marks}}</view>
+         <view class="marks-btn">
+           <view class="btn" bindtap="showAddMks" >增加积分</view>
+           <view class="btn" bindtap="showMinMks" >扣除积分</view>
+         </view>
+      </view>
+    </view>
+    <modal hidden="{{hideAdd}}" title="请输入添加的积分数" confirm-text="确认" cancel-text="取消" bindcancel="showAddMks" bindconfirm="add" data-item="{{item}}" data-index="{{index}}">  
+    <input value='' bindinput='onbindinput' class="change-num" type='number' placeholder="输入积分" auto-focus/>  
+</modal>
+<modal hidden="{{hideMin}}" title="请输入扣除的积分数" confirm-text="确认" cancel-text="取消" bindcancel="showMinMks" bindconfirm="min" data-item="{{item}}" data-index="{{index}}">  
+    <input value='' class="change-num" type='number'placeholder="输入积分" auto-focus bindinput='onbindinput'/>  
+</modal> 
+ </block> 
+ <view class="toHome" bindtap='toHome'>回到主页</view>
+</view>

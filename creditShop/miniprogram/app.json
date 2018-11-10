@@ -2,6 +2,8 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
+    "pages/changeUser/changeUser",
+    "pages/manager/manager",
     "pages/shopping/shopping",
     "pages/mine/mine",
     "pages/signUp/signUp",

@@ -1,0 +1,23 @@
+<view class="wrap">
+  <van-cell-group class="form">
+    <van-field
+      value="{{ username }}"
+      required
+      clearable
+      label="用户名"
+      bind:change="getUserName"
+      placeholder="请输入用户名"
+    />
+
+    <van-field
+      value="{{ pwd }}"
+      type="password"
+      bind:change="getPwd"
+      label="密码"
+      placeholder="请输入密码"
+      required
+      border="{{ true }}"
+    />
+  </van-cell-group>
+  <view bindtap="checkLogin" class="adminLogin">登  录</view>
+</view>

@@ -5,3 +5,14 @@
   align-items: center;
   box-sizing: border-box;
 } 
+
+.hidden{
+  display: none;
+}
+
+.noData{
+  height:100vh;
+  padding: 40rpx 0;
+  color:#999;
+  text-align: center;
+}

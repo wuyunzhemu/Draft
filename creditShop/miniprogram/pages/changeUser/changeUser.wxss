@@ -1,0 +1,88 @@
+/* miniprogram/pages/changeUser/changeUser.wxss */
+.wrap{
+  height: 100vh;
+  width: 100%;
+  background: #f0f0f0;
+  display:flex;
+  flex-direction: column;
+
+}
+
+.page-title{
+  color:#a5a5a5;
+  font-size: 30rpx;
+  margin-top:20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 30rpx;
+}
+
+.user-card{
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  background: #fff;
+  height:15%;
+  padding:20rpx 30rpx;
+  justify-content: space-between;
+}
+.user-desc{
+  margin-top: 30rpx;
+  font-size: 32rpx;
+}
+text{
+  display: block;
+  margin-bottom: 20rpx;
+  }
+
+.marks{
+  display: flex;
+  flex-direction: row;
+}
+
+.marks-num{
+  padding-top:10rpx;
+  margin-right: 40rpx;
+  align-self: center;
+  height:120rpx;
+  width:200rpx;
+  background: #f9f9f9;
+  text-align: center;
+  letter-spacing: 2rpx;
+  font-size: 80rpx;
+  font-weight: 200;
+}
+
+
+
+.btn{
+  margin-top: 20rpx;
+  padding-top: 10rpx;
+  text-align: center;
+  width:140rpx;
+  height:50rpx;
+  border:1px solid #ddd;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+
+.change-num{
+  text-align: right;
+}
+
+.toHome{
+  position: fixed;
+  bottom:40rpx; 
+  left:5%;
+  width:90%;
+  height:60rpx;
+  border-radius: 10rpx;
+  background: #00a77b;
+  color:white;
+  text-align: center;
+  padding-top:20rpx;
+  padding-bottom: 6rpx;
+  display: block;
+}
+
+.toHome:active{
+  filter: brightness(0.7);
+}

@@ -3,8 +3,8 @@
     <view class="record">
       <view class="desc">
         <text class="title">{{item.title}}</text>
-        <text class="time">{{item.Time}}</text>
+        <text class="time">{{item.time}}</text>
       </view>
-      <view class="cost">{{item.price}}</view>
+      <view class="cost">{{item.detail}}</view>
     </view>
   </view>

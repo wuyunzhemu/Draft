@@ -1,31 +1,59 @@
-// miniprogram/pages/credits/credits.js
+// miniprogram/pages/manager/manager.js
 const db = wx.cloud.database();
-const sp = db.collection('credits');
+const mng = db.collection('manager');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    record:[]
+    userName:'',
+    pwd:''
   },
+
+  getUserName(e){
+    this.setData({
+      userName:e.detail
+    })
+  },
+  getPwd(e){
+    this.setData({
+      pwd:e.detail
+    })
+  },
+
+  checkLogin(){
+    let userName=this.data.userName;
+    let pwd = this.data.pwd;
+    let that = this;
+    mng.where({
+      userName:userName,
+      pwd:pwd
+    }).get({
+      success:res=>{
+        console.log(res)
+        if(res.data.length===0){
+          wx.showToast({
+            title: '用户名或密码不正确~',
+            icon:'none'
+          })
+        }
+        else{
+          wx.navigateTo({
+            url: '../changeUser/changeUser',
+          })
+        }
+      }
+    })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let user = options.openid;
-    let that = this;
-    sp.where({
-      user:user
-    }).get({
-      success:res=>{
-        that.setData({
-          record:res.data.reverse()
-        })
- 
-      }
-    })
 
   },
 

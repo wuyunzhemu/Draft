@@ -2,6 +2,7 @@
  let db = wx.cloud.database();
  let user = db.collection('user');
  let sp = db.collection('shopping');
+ let mks = db.collection('credits');
 let app= getApp();
 
 Page({
@@ -39,11 +40,6 @@ Page({
       wx.showToast({
         title: '请先登陆~',
         icon:'none',
-        success:res=>{
-          wx.switchTab({
-            url: '../../pages/mine/mine',
-          })
-        }
       })
     }
     else{
@@ -89,7 +85,15 @@ Page({
                     buy.user = openid;
                     buy.Time = that.getTime();
                     buy.status = '未兑换';
-                    buy.title='积分兑换';
+                    buy.title='积分兑换商品';
+                    mks.add({
+                      data:{
+                        user:buy.user,                    
+                        time:buy.Time,
+                        title:buy.title,
+                        detail:buy.price
+                      }
+                    })
                     sp.add({
                       data:buy,
                       success:spres=>{
@@ -123,13 +127,26 @@ Page({
       let seperator2 = ":";//时分秒分隔符
       let month = date.getMonth() + 1; //月份是0~11，要加1为当前月
       let strDate = date.getDate();
+      let hour = date.getHours();
+      let min = date.getMinutes();
+      let sec  = date.getSeconds();
       if (month >= 1 && month <= 9) {
         month = "0" + month;
       }
       if (strDate >= 0 && strDate <= 9) {
         strDate = "0" + strDate;
       }
-      let currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + " " + date.getHours() + seperator2 + date.getMinutes() + seperator2 + date.getSeconds();
+      if(hour>=0 && hour<=9){
+        hour = '0'+hour
+      }
+      if(min>=0&&min<=9){
+        min='0'+min;
+      }
+      if(sec>=0&&sec<=9){
+        sec='0'+sec
+      }
+      
+      let currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + " " + hour+ seperator2 + min + seperator2 + sec;
       return currentdate;
   },
 

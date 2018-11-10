@@ -2,17 +2,19 @@
   <view class="{{hasLog?'hidden':'unLog'}}" >
   <van-card bindtap='Login' thumb="../../images/unLog.jpg" title="点击登陆/注册"></van-card>
     <van-cell-group class="menu-list">
-      <van-cell class="cell" bindtap="seekCredits" title="我的积分"></van-cell>
+
+      <van-cell class="cell" bindtap="seekCredits" title="我的积分"clickable="true"></van-cell>
       <van-cell class="cell" bindtap="seekOrders" title="订单记录" is-link></van-cell>
       <van-cell class="cell" class="{{hasLog?'':'hidden'}}" title="退出登陆" clickable="true"></van-cell>
-      <van-cell class="cell" title="登陆使用更多"></van-cell>
+      <van-cell class="cell" bindtap="Immanager" title="我是管理员"is-link></van-cell>
+      
     </van-cell-group>
   </view>
   <view class="{{hasLog?'inLog':'hidden'}}">
     <van-card thumb="{{userInfo.wxInfo.avatarUrl}}" title="{{userInfo.school}}  {{userInfo.area}}" 
     desc="{{userInfo.dmtry}} {{userInfo.roomNum}}"></van-card>
     <van-cell-group class="menu-list">
-      <van-cell icon="exchange" bindtap="seekCredits" class="cell" title="我的积分" is-link value="{{userInfo.marks}}"></van-cell>
+      <van-cell icon="exchange" bindtap="seekCredits" class="cell" title="我的积分" is-link value="{{userInfo.marks===0?'0':userInfo.marks}}"></van-cell>
       <van-cell icon="pending-orders" bindtap="seekOrders" class="cell" title="订单记录" is-link></van-cell>
       <van-cell bindtap="logOut" class="cell" title="退出登陆" clickable="true"></van-cell>
     </van-cell-group>

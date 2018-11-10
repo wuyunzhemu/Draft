@@ -10,7 +10,7 @@ Page({
   data: {
     showDmtrList:false,
     userInfo:{
-      marks:500,
+      marks:0,
       openid:'',
       roomNum:'',
       roomerName:'',

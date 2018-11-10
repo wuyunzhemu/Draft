@@ -65,16 +65,7 @@
   margin-right: 50rpx;
 }
 
-.hidden{
-  display: none;
-}
 
-.noData{
-  height:100vh;
-  padding: 40rpx 0;
-  color:#999;
-  text-align: center;
-}
 
 .item_name{
   display: flex;

@@ -114,6 +114,6 @@ text{
 
 .cart-total-price{
   position:relative;
-  top:18rpx;
+  top:26rpx;
 }
 

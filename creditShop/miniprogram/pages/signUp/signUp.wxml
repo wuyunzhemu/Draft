@@ -13,6 +13,7 @@
       label="寝室号"
       placeholder="请输入寝室号"
       border="{{ true }}"
+      type="number"
       bind:change="changeRoomNum"
     />
       <van-field
@@ -24,6 +25,7 @@
         <van-field
       placeholder="请输入寝室长电话"
       label="电话"
+      type="number"
       border="{{ true }}"
       bind:change="changeRoomerPhone"
     />

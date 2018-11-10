@@ -74,7 +74,7 @@
   background: #00a77b;
   color:white;
   text-align: center;
-  padding-top:10rpx;
+  padding-top:20rpx;
   padding-bottom: 20rpx;
   display: block;
 }

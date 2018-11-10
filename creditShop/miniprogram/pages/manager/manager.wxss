@@ -1,0 +1,30 @@
+/* miniprogram/pages/manager/manager.wxss */
+.wrap{
+  height: 100vh;
+  width: 100%;
+  background: #f0f0f0;
+  display:flex;
+  flex-direction: column;
+}
+
+.form{
+  margin-top:30%;
+}
+
+.adminLogin{
+  position: absolute;
+  top:37%;
+  left:5%;
+  width:90%;
+  height:60rpx;
+  border-radius: 10rpx;
+  background: #00a77b;
+  color:white;
+  text-align: center;
+  padding-top:20rpx;
+  padding-bottom: 6rpx;
+  display: block;
+}
+.adminLogin:active{
+   filter: brightness(0.7)
+}

@@ -47,10 +47,12 @@ App({
           wx.hideLoading();
           return;
         }
+        wx.hideLoading();
         return;
       }
       
     })
+    wx.hideLoading();
     return;
   }
 })
