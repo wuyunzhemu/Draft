@@ -17,14 +17,17 @@
                 <input type="text" name="login_userName" required placeholder="username" class=" loginItem__form-input" />
                 <span>密码</span>
                 <input type="password" name="login_pwd" required placeholder="password" class=" loginItem__form-input" />
-                <input type="submit" value="立即登录" class="loginItem__form-submit" />
+                <input onclick = "login" type="submit" value="立即登录" class="loginItem__form-submit" />
             </form>
         </div>
-        <div class="loginItem__reg">注册</div>
+        <a href='' class="loginItem__reg">立即注册</a>
     </div>
 </div>
 <script>
-    
+    function login(){
+        console.log(登陆)
+        request(url,args);
+    }
 </script>
 </body>
 </html>
